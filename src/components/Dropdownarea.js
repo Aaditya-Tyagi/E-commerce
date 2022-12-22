@@ -19,59 +19,25 @@ export default function Dropdownarea(props) {
     setSelectedsize("Sizes");
     props.setFilteredItemlist(props.itemList);
   };
-  // useEffect(()=>{setFilteredItem()},[selectedProduct,Selectedsize])
-  // function setFilteredItem(){
-  //     let filtereditemlist=[Dummydata[0]]
-  //     let templist=Dummydata.slice();
-  //     if(selectedProduct!='Product'){
-  //         for(let i =0;i<templist.length;i++){
-  //             if(templist[i].itemtype===selectedProduct){
-  //                 filtereditemlist.push(templist[i])
-  //             }
-  //         }
-  //     }
-
-  //     if(Selectedsize!='Sizes'){
-  //         if(selectedProduct!='Product'){
-  //             templist=filtereditemlist.slice();
-  //             filtereditemlist=[Dummydata[0]];
-  //         }
-  //         for(let i =0;i<templist.length;i++){
-  //             if(templist[i].Size.includes(Selectedsize)){
-  //                 filtereditemlist.push(templist[i])
-  //             }
-  //         }
-  //     }
-  //     if(selectedProduct=='Product'&&Selectedsize=='Sizes'){
-  //         filtereditemlist=templist.slice();
-  //     }
-  //     console.log(filtereditemlist);
-  //     props.setitemlist(filtereditemlist)
-  // }
 
   const setFilteredItems = () => {
     let tempFilteredItemList = props.itemList;
     let result = [];
     result = tempFilteredItemList.filter((item) => {
       let isValidSelectedProduct = false;
-      if (selectedProduct != "Product") {
-        if (item.itemtype == selectedProduct) {
-          isValidSelectedProduct = true;
-        }
-      } else {
+      if (item.itemtype == selectedProduct) {
         isValidSelectedProduct = true;
       }
 
       let isValidSelectedSize = false;
-      if (Selectedsize != "Sizes") {
-        if (item.Size.includes(Selectedsize)) {
-          isValidSelectedSize = true;
-        }
-      } else {
+      if (item.Size.includes(Selectedsize)) {
         isValidSelectedSize = true;
       }
 
-      return isValidSelectedProduct && isValidSelectedSize;
+      return (
+        (selectedProduct == "Product" || isValidSelectedProduct) &&
+        (Selectedsize == "Sizes" || isValidSelectedSize)
+      );
     });
     if (selectedProduct == "Product" && Selectedsize == "Sizes") {
       result = props.itemList;
