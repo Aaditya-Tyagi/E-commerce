@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './item.css';
 
 export default function Item(props){
-    const[quantity,setquantity] = useState(1)
+    const[quantity,setQuantity] = useState(1)
  
     function tempaddtocart(e){
        if(e.target.checked)
-        {props.addtocart({...props.Dummydata,quantity});}
+        {   
+            props.addtocart({...props.Dummydata,quantity});
+    }
         else{
             props.removefromcart(e.target.dataset.id)
         }
@@ -30,7 +32,7 @@ export default function Item(props){
                     {props.Dummydata.Price}
                 </div>
                <div>
-                 <input type='Number' id='noofitems' value={quantity} onChange={(e)=>{setquantity(e.target.value)}}></input>
+                 <input type='Number' id='noofitems' value={quantity} onChange={(e)=>{setQuantity(+e.target.value)}}></input>
                 <input type='checkbox' id='addtocartbtn' data-id={props.Dummydata.id} onClick={(e)=>{tempaddtocart(e)}} />
                 </div>
             </div>

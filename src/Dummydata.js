@@ -1,15 +1,4 @@
 export const Dummydata=[
-    {
-        Name:'Name',
-        Image: null,
-        Color:'Color',
-        Stock:'Stock',
-        Price:'Price',
-        Buy:'Buy',
-        Size:[],
-        altsrc:'Image',
-        itemtype:'menu'
-    },
     {   id:1,
         Name:'Blue Hoodie',
         Image:'../img/bluehoodieimg.jpg',
