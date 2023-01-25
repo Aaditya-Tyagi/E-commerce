@@ -1,16 +1,29 @@
-import './App.css';
-import Shoppingpage from './components/Shoppingpage';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route,Routes } from "react-router-dom";
-import Cartpage from './components/Cartpage';
+import './App.css'
+import Shoppingpage from './components/Shoppingpage'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Route, Routes } from 'react-router-dom'
+import Cartpage from './components/Cartpage'
+import { useState } from 'react'
 
-function App() {
+function App () {
+  const [itemListForCart, setItemListForCart] = useState([])
   return (
-    <Routes className="App">
-      <Route path='/' element={<Shoppingpage />}/>
-      <Route path='/cartpage' element={<Cartpage />}/>
+    <Routes className='App'>
+      <Route
+        path='/'
+        element={
+          <Shoppingpage
+            itemListForCart={itemListForCart}
+            setItemListForCart={setItemListForCart}
+          />
+        }
+      />
+      <Route
+        path='/cartpage'
+        element={<Cartpage itemListForCart={itemListForCart} />}
+      />
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

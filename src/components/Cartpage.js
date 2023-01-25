@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import { useParams } from 'react-router-dom'
 import Cartitem from './Cartitem'
 
 export default function Cartpage (props) {
-  // const {id}=useParams();
-  // const {data}=props.location.state
-  const data = [1, 2, 3, 4]
+ const data=props.itemListForCart
+  console.log(data)
   return (
     <div>
       <div id='cartItemListDiv'>

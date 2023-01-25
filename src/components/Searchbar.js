@@ -4,16 +4,17 @@ import { Link, Navigate,useNavigate } from 'react-router-dom'
 
 export default function Searchbar (props) {
   const navigate = useNavigate();
-  function addToCartFunction () { 
-    props.checkout()
-    navigate('/cartpage',{state:{data:props.cartItemList}});
+  
+  function goToCartFunction () { 
+     props.checkout()
+    navigate('/cartpage');
   }
   return (
     <span>
       <p>Search</p>
       <input type='search'></input>
 
-      <Button variant='light' onClick={addToCartFunction}>
+      <Button variant='light' onClick={goToCartFunction}>
         Add To Cart
       </Button>
     </span>
