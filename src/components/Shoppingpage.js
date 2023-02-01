@@ -14,7 +14,7 @@ export default function Shoppingpage ({itemListForCart, setItemListForCart}) {
 
   function removefromcart (e) {
     selectedItemList=selectedItemList.filter((item)=>{
-      return item.id!=e
+      return item.id!==e
     })
   }
 
@@ -54,7 +54,7 @@ export default function Shoppingpage ({itemListForCart, setItemListForCart}) {
               <Item
                 addtocart={addtocart}
                 removefromcart={removefromcart}
-                Dummydata={item}
+                data={item}
               />
             </li>
           )

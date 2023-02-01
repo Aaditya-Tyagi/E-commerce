@@ -7,33 +7,33 @@ export default function Item(props){
     function tempaddtocart(e){
        if(e.target.checked)
         {   
-            props.addtocart({...props.Dummydata,quantity});
+            props.addtocart({...props.data,quantity});
     }
         else{
-            props.removefromcart(e.target.dataset.id)
+            props.removefromcart(+e.target.dataset.id)
         }
     }
         return(
             <div className='Item d-flex justify-content-between'>
                 <div id='Imgofitem'>
-                  {props.Dummydata.Image ? <img src={props.Dummydata.Image} alt={props.Dummydata.altsrc} /> :' Image'}  
+                  {props.data.Image ? <img src={props.data.Image} alt={props.data.altsrc} /> :' Image'}  
                 </div>
                 <div>
-                    {props.Dummydata.Name}
+                    {props.data.Name}
                 </div>
                 <div>
-                    {props.Dummydata.Color}
+                    {props.data.Color}
                 </div>
-                <div id="Stockcolumn"style={props.Dummydata.Stock ? {color:'green'}:{color:'red'}}>
-                    {  typeof props.Dummydata.Stock ==='string'? <span id='stockheadingP'>Stock</span> : <span>{props.Dummydata.Stock ? 'In Stock':'Out of Stock'}</span>
+                <div id="Stockcolumn"style={props.data.Stock ? {color:'green'}:{color:'red'}}>
+                    {  typeof props.data.Stock ==='string'? <span id='stockheadingP'>Stock</span> : <span>{props.data.Stock ? 'In Stock':'Out of Stock'}</span>
                     }       
                 </div>
                 <div>
-                    {props.Dummydata.Price}
+                    {props.data.Price}
                 </div>
                <div>
                  <input type='Number' id='noofitems' value={quantity} onChange={(e)=>{setQuantity(+e.target.value)}}></input>
-                <input type='checkbox' id='addtocartbtn' data-id={props.Dummydata.id} onClick={(e)=>{tempaddtocart(e)}} />
+                <input type='checkbox' id='addtocartbtn' data-id={props.data.id} onClick={(e)=>{tempaddtocart(e)}} />
                 </div>
             </div>
         )

@@ -66,6 +66,7 @@ useEffect(setFilteredItems, [selectedProduct, Selectedsize]);
           <MenuItem value={'Jeans'}>Jeans</MenuItem>
           <MenuItem value={'Shirts'}>Shirts</MenuItem>
           <MenuItem value={'Pants'}>Pants</MenuItem>
+          <MenuItem value={'T-Shirts'}>T-Shirts</MenuItem>
         </Select>
       </FormControl>
         <FormControl sx={{ m: 1, minWidth: 80 }}>
