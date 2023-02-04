@@ -27,7 +27,7 @@ export default function Dropdownarea(props) {
     let result = [];
     result = tempFilteredItemList.filter((item) => {
       let isValidSelectedProduct = false;
-      if (item.itemtype == selectedProduct) {
+      if (item.itemtype === selectedProduct) {
         isValidSelectedProduct = true;
       }
       let isValidSelectedSize = false;
@@ -35,11 +35,11 @@ export default function Dropdownarea(props) {
         isValidSelectedSize = true;
       }
       return (
-        (selectedProduct == "" || isValidSelectedProduct) &&
-        (Selectedsize == "" || isValidSelectedSize)
+        (selectedProduct === "" || isValidSelectedProduct) &&
+        (Selectedsize === "" || isValidSelectedSize)
       );
     });
-    if (selectedProduct == "" && Selectedsize == "") {
+    if (selectedProduct === "" && Selectedsize === "") {
       result = props.itemList;
     }
     props.setFilteredItemlist(result);
