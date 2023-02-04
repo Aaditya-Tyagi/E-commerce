@@ -43,7 +43,6 @@ export const Dummydata = [
     altsrc: 'Cyan Hoodie',
     itemtype: 'Hoodies'
   },
-  ,
   {
     id: 5,
     Name: 'Black T-Shirt',
