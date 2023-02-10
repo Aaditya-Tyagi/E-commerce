@@ -5,13 +5,8 @@ export default function Cartitem (props) {
   let [quantity, setQuantity] = useState(props.data.quantity)
   let [subtotal, setSubtotal] = useState(0)
   useEffect(calculatingSubtotal, [quantity])
-  // useEffect(()=>{
-  //   if(quantity===0){
-  //    setTimeout(()=>{props.removeFromCart(+props.data.id);},0) 
-  //   }
-  // },[quantity,props])
   function handleCartDeletion (e) {
-    props.removeFromCart(+e.target.dataset.id)
+    props.removeFromCart(props.data.id)
   }
 
   function calculatingSubtotal () {
@@ -45,7 +40,7 @@ export default function Cartitem (props) {
         <div>{props.data.Name}</div>
         <div>{props.data.Price}$</div>
         <div>
-          <button id='decreasingQuantity' onClick={decreasingQuantity}>
+          <button id='decreasingQuantity' onClick={decreasingQuantity} disabled={quantity===1}>
             -
           </button>
           <span>{props.data.quantity}</span>

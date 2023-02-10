@@ -35,8 +35,9 @@ export default function Shoppingpage ({itemListForCart, setItemListForCart}) {
         />
         <Searchbar 
           checkout={checkout}
-          itemListForCart={itemListForCart}
-          setItemListForCart={setItemListForCart}
+          itemList={itemList}
+          filteredItemlist={filteredItemlist}
+          setFilteredItemlist={setFilteredItemlist}
         />
       </nav>
       <ol className='itemsmenu'>

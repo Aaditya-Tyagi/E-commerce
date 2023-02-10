@@ -3,8 +3,8 @@ import Cartitem from './Cartitem'
 import { useNavigate } from 'react-router-dom'
 
 export default function Cartpage (props) {
-  const navigate= useNavigate();
-  let [cartList, setCartList] = useState(Array.from(props.itemListForCart))
+  const navigate = useNavigate()
+  let [cartList, setCartList] = useState([...props.itemListForCart])
   let tempItemPrice = 0
   let [CartTotals, setCartTotals] = useState(0)
   function findingFinalCartPrice () {
@@ -19,7 +19,7 @@ export default function Cartpage (props) {
   }
 
   function updatingFinalPriceForCart () {
-    if(cartList.length==0){
+    if (cartList.length == 0) {
       navigate('/')
     }
     tempItemPrice = 0
@@ -28,20 +28,23 @@ export default function Cartpage (props) {
   }
 
   function removeFromCart (e) {
+    console.log(cartList, e)
     setCartList(
       cartList.filter(item => {
         return item.id !== e
       })
     )
+    console.log(cartList)
   }
 
   function handleQuantityChange (index, newQuantity) {
-    // Update the quantity for the corresponding item in the cartList
-    cartList[index].quantity = newQuantity
-    findingFinalCartPrice()
+      let tempCartList = [...cartList]
+      tempCartList[index].quantity = newQuantity
+      setCartList(tempCartList)
+      findingFinalCartPrice()
   }
 
-  useEffect(updatingFinalPriceForCart,[cartList])
+  useEffect(updatingFinalPriceForCart, [cartList])
 
   return (
     <div>
@@ -59,8 +62,6 @@ export default function Cartpage (props) {
               <li key={index}>
                 <Cartitem
                   data={element}
-                  // quantity={quantity}
-                  // setQuantity={setQuantity}
                   removeFromCart={removeFromCart}
                   handleQuantityChange={handleQuantityChange}
                   index={index}
