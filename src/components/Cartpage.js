@@ -24,17 +24,14 @@ export default function Cartpage (props) {
     }
     tempItemPrice = 0
     findingFinalCartPrice()
-    console.log('updating')
   }
 
   function removeFromCart (e) {
-    console.log(cartList, e)
     setCartList(
       cartList.filter(item => {
         return item.id !== e
       })
     )
-    console.log(cartList)
   }
 
   function handleQuantityChange (index, newQuantity) {
