@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Light";   /*Can be any text*/
+  src: local("PoppinsMedium"),
+    url("./fonts/Poppins-Medium.ttf") format("truetype");
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

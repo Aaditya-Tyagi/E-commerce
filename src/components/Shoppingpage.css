@@ -10,13 +10,7 @@ li{
     display: flex;
     flex-direction:row ;
 }
-li:nth-child(1){
-    background: lightgrey;
-    border-bottom: 2px solid black;
-}
-li:nth-child(1) button,li:nth-child(1) input{
-    display: none;
-}
+
 /* li:nth-child(1) {
     margin-left: 50px;
     margin-right: 50px; 
