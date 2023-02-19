@@ -1,20 +1,22 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Dummydata } from '../Dummydata.js'
 import Item from './Item.js'
 import './Shoppingpage.css'
 import Dropdownarea from './Dropdownarea.js'
 import Searchbar from './Searchbar.js'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
-export default function Shoppingpage ({itemListForCart, setItemListForCart}) {
-  
-  let selectedItemList=[];
+export default function Shoppingpage ({ itemListForCart, setItemListForCart }) {
+  let selectedItemList = []
   function addtocart (e) {
     selectedItemList.push(e)
   }
 
   function removefromcart (e) {
-    selectedItemList=selectedItemList.filter((item)=>{
-      return item.id!==e
+    selectedItemList = selectedItemList.filter(item => {
+      return item.id !== e
     })
   }
 
@@ -33,24 +35,28 @@ export default function Shoppingpage ({itemListForCart, setItemListForCart}) {
           filteredItemlist={filteredItemlist}
           setFilteredItemlist={setFilteredItemlist}
         />
-        <Searchbar 
+        <Searchbar
           checkout={checkout}
-          itemListForCart={itemListForCart}
-          setItemListForCart={setItemListForCart}
+          itemList={itemList}
+          filteredItemlist={filteredItemlist}
+          setFilteredItemlist={setFilteredItemlist}
         />
       </nav>
-      <ol className='itemsmenu'>
-        <li className='Item d-flex justify-content-between'>
-          <div>Image</div>
-          <div>Name</div>
-          <div>Color</div>
-          <div>Stock</div>
-          <div>Price</div>
-          <div>Buy</div>
-        </li>
+      <ol className='itemsmenu' style={{ padding: '0' }}>
+        <Container style={{  width: '100%',borderLeft:'15px ridge royalBlue',background:'#FFFFEF',marginBottom:'5px',fontFamily:'Light-Poppins',fontSize:'20px'  }}>
+          <Row xs={12} md={6}>
+              <Col xs={3} md={1}><span >Image</span></Col>
+              <Col xs={2}><span >Name</span></Col>
+              <Col xs={1}><span >Color</span></Col>
+              <Col xs={2}><span >Stock</span></Col>
+              <Col xs={1}><span >Price</span></Col>
+              <Col xs={3}><span >Buy</span></Col>
+          </Row>
+        </Container>
         {filteredItemlist.map((item, index) => {
           return (
-            <li key={index}>
+            <li key={index} className='itemsInShoppingList'>
+              <style>{' .itemsInShoppingList{width : 100}'}</style>
               <Item
                 addtocart={addtocart}
                 removefromcart={removefromcart}
