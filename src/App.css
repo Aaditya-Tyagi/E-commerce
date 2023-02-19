@@ -1,3 +1,6 @@
+body{
+  margin: 0;
+}
 .App {
   text-align: center;
 }
@@ -6,6 +9,11 @@
   font-family: "Light";   /*Can be any text*/
   src: local("PoppinsMedium"),
     url("./fonts/Poppins-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Light-poppins";   /*Can be any text*/
+  src: local("PoppinsBoldItalic"),
+    url("./fonts/Poppins-SemiBoldItalic.ttf") format("truetype");
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
