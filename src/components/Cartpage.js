@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Cartitem from './Cartitem'
 import { useNavigate } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 export default function Cartpage (props) {
   const navigate = useNavigate()
@@ -35,40 +38,85 @@ export default function Cartpage (props) {
   }
 
   function handleQuantityChange (index, newQuantity) {
-      let tempCartList = [...cartList]
-      tempCartList[index].quantity = newQuantity
-      setCartList(tempCartList)
-      findingFinalCartPrice()
+    let tempCartList = [...cartList]
+    tempCartList[index].quantity = newQuantity
+    setCartList(tempCartList)
+    findingFinalCartPrice()
   }
 
   useEffect(updatingFinalPriceForCart, [cartList])
 
   return (
-    <div>
-      <div id='cartItemListDiv'>
-        <ol>
-          <li id='firstItemOfList' className='Item d-flex justify-content-between'>
-            <div>Product</div>
-            <div>Price</div>
-            <div>Quantity</div>
-            <div>Subtotal</div>
-          </li>
-
-          {cartList.map((element, index) => {
-            return (
-              <li key={index}>
-                <Cartitem
-                  data={element}
-                  removeFromCart={removeFromCart}
-                  handleQuantityChange={handleQuantityChange}
-                  index={index}
-                />
-              </li>
-            )
-          })}
-        </ol>
-      </div>
-      <div id='totalPriceAndCheckOutList'>CartTotals={CartTotals}</div>
+    <div style={{ margin: '5px', display: 'flex', padding: '10px',fontFamily:'Poppins',fontSize:'20px' }}>
+      <Container
+        id='cartItemListDiv'
+        style={{ width: '75%', margin: '0' }}
+      >
+        <Container style={{ alignItems: 'end' }}>
+          <Row>
+            <Col
+              xs={5}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <div>Product</div>
+            </Col>
+            <Col
+              xs={1}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <div>Price</div>
+            </Col>
+            <Col
+              xs={3}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              {' '}
+              <div>Quantity</div>
+            </Col>
+            <Col
+              xs={2}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <div>Subtotal</div>
+            </Col>
+          </Row>
+        </Container>
+        {cartList.map((element, index) => {
+          return (
+            <Row key={index}>
+              <Cartitem
+                data={element}
+                removeFromCart={removeFromCart}
+                handleQuantityChange={handleQuantityChange}
+                index={index}
+              />
+            </Row>
+          )
+        })}
+      </Container>
+      <Col
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        xs={2}
+        id='totalPriceAndCheckOutList'
+      >
+        CartTotals={CartTotals}
+      </Col>
     </div>
   )
 }

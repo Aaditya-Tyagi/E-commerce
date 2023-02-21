@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './Cartitem.css'
 
 export default function Cartitem (props) {
   let newQuantity = 0
@@ -26,30 +30,75 @@ export default function Cartitem (props) {
     props.handleQuantityChange(props.index, newQuantity)
   }
   return (
-    <div>
-      <div className='Item d-flex justify-content-between'>
-        <button
-          data-id={props.data.id}
-          onClick={e => {
-            handleCartDeletion(e)
-          }}
+    <Container style={{ borderLeft: '15px ridge royalBlue', margin: '10px' }}>
+      <Row>
+        <Col
+          xs={1}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >
-          X
-        </button>
-        <img src={props.data.Image} alt={props.data.altsrc} />
-        <div>{props.data.Name}</div>
-        <div>{props.data.Price}$</div>
-        <div>
-          <button id='decreasingQuantity' onClick={decreasingQuantity} disabled={quantity===1}>
+          <button
+            style={{
+              border: 'none',
+              borderRadius: '100%',
+              height: '48px',
+              width: '64px',
+              fontSize: '24px'
+            }}
+            data-id={props.data.id}
+            className='removeFromCartBtn'
+            onClick={e => {
+              handleCartDeletion(e)
+            }}
+          >
+            X
+          </button>
+        </Col>
+        <Col
+          xs={2}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <img src={props.data.Image} alt={props.data.altsrc} />
+        </Col>
+        <Col
+          xs={2}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {props.data.Name}
+        </Col>
+        <Col
+          xs={1}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {props.data.Price}$
+        </Col>
+        <Col
+          xs={3}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <button
+            id='decreasingQuantity'
+            onClick={decreasingQuantity}
+            disabled={quantity === 1}
+            style={{ border: 'none', borderRadius: '25%'}}
+          >
             -
           </button>
-          <span>{props.data.quantity}</span>
-          <button id='increasingQuantity' onClick={increasingQuantity}>
+          <span style={{margin:'0 10px'}}>{props.data.quantity}</span>
+          <button
+            id='increasingQuantity'
+            onClick={increasingQuantity}
+            style={{ border: 'none', borderRadius: '25%'}}
+          >
             +
           </button>
-        </div>
-        <div>{subtotal}</div>
-      </div>
-    </div>
+        </Col>
+        <Col
+          xs={2}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {subtotal}
+        </Col>
+      </Row>
+    </Container>
   )
 }

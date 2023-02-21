@@ -43,14 +43,35 @@ export default function Shoppingpage ({ itemListForCart, setItemListForCart }) {
         />
       </nav>
       <ol className='itemsmenu' style={{ padding: '0' }}>
-        <Container style={{  width: '100%',borderLeft:'15px ridge royalBlue',background:'#FFFFEF',marginBottom:'5px',fontFamily:'Light-Poppins',fontSize:'20px'  }}>
+        <Container
+          style={{
+            width: '100%',
+            borderLeft: '15px ridge royalBlue',
+            background: '#FFFFFF',
+            marginBottom: '5px',
+            fontFamily: 'Light-Poppins',
+            fontSize: '20px'
+          }}
+        >
           <Row xs={12} md={6}>
-              <Col xs={3} md={1}><span >Image</span></Col>
-              <Col xs={2}><span >Name</span></Col>
-              <Col xs={1}><span >Color</span></Col>
-              <Col xs={2}><span >Stock</span></Col>
-              <Col xs={1}><span >Price</span></Col>
-              <Col xs={3}><span >Buy</span></Col>
+            <Col xs={3} md={1}>
+              <span>Image</span>
+            </Col>
+            <Col xs={2}>
+              <span>Name</span>
+            </Col>
+            <Col xs={1}>
+              <span>Color</span>
+            </Col>
+            <Col xs={2}>
+              <span>Stock</span>
+            </Col>
+            <Col xs={1}>
+              <span>Price</span>
+            </Col>
+            <Col xs={3}>
+              <span>Buy</span>
+            </Col>
           </Row>
         </Container>
         {filteredItemlist.map((item, index) => {

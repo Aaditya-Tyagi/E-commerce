@@ -24,10 +24,10 @@ export default function Searchbar (props) {
   }
   return (
     <span>
-      <span id='Searcharea'>
+      <span id='Searcharea' style={{height:'64px'}}>
         <input type='search' placeholder='Search'onKeyDown={handleKeyDown}></input>
       </span>
-      <Button variant='Dark' onClick={goToCartFunction}>
+      <Button variant='Dark' style={{height:'64px'}} onClick={goToCartFunction}>
         Add To Cart
       </Button>
     </span>

@@ -88,7 +88,7 @@ useEffect(setFilteredItems, [selectedProduct, Selectedsize]);
           <MenuItem value={'XL'}>XL</MenuItem>
         </Select>
       </FormControl>
-      <Button variant="light"  onClick={reset}>
+      <Button variant="light" style={{height:'64px'}} onClick={reset}>
         🔁Reset
       </Button>
     </span>

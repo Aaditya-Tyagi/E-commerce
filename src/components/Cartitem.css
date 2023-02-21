@@ -1,0 +1,16 @@
+.removeFromCartBtn{
+    background:#FFFFFF;
+}
+.removeFromCartBtn:hover{
+    background: #F0F0F0;
+}
+
+#decreasingQuantity{
+    background: rgb(255,135,135);
+}
+#decreasingQuantity:disabled{
+    background: rgb(255,200,200);
+}
+#increasingQuantity{
+    background: rgb(150,250,150);
+}
